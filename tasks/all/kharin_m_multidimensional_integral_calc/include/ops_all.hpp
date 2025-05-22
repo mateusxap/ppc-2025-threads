@@ -25,6 +25,9 @@ class TaskALL : public ppc::core::Task {
   std::vector<double> local_input_;
   std::vector<size_t> grid_sizes_;
   std::vector<double> step_sizes_;
+  bool validation_result_{true};
+  bool preprocessing_result_{true};
+  bool local_steps_valid_{true};
   double output_result_;
   boost::mpi::communicator world_;
   size_t num_threads_{1};
