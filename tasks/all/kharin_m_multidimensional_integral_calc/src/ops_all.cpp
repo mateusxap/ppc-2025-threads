@@ -41,7 +41,7 @@ bool kharin_m_multidimensional_integral_calc_all::TaskALL::PreProcessingImpl() {
     auto* sizes_ptr = reinterpret_cast<size_t*>(task_data->inputs[1]);
     size_t d = task_data->inputs_count[1];
     grid_sizes_ = std::vector<size_t>(sizes_ptr, sizes_ptr + d);
-  
+
     auto* steps_ptr = reinterpret_cast<double*>(task_data->inputs[2]);
     step_sizes_ = std::vector<double>(steps_ptr, steps_ptr + d);
 
