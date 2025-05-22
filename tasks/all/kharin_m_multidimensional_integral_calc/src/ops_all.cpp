@@ -26,7 +26,7 @@ bool kharin_m_multidimensional_integral_calc_all::TaskALL::ValidationImpl() {
 
   // Сохраняем локальный результат для использования в RunImpl
   validation_result_ = local_is_valid;
-  return true; // Всегда возвращаем true, реальная проверка будет в RunImpl
+  return true;  // Всегда возвращаем true, реальная проверка будет в RunImpl
 }
 
 bool kharin_m_multidimensional_integral_calc_all::TaskALL::PreProcessingImpl() {
@@ -56,14 +56,14 @@ bool kharin_m_multidimensional_integral_calc_all::TaskALL::PreProcessingImpl() {
   }
 
   // Локальная проверка шагов
-  local_steps_valid_ = true; // Инициализируем, но будем использовать только на 0-ом процессе до RunImpl
+  local_steps_valid_ = true;  // Инициализируем, но будем использовать только на 0-ом процессе до RunImpl
   if (world_.rank() == 0 && !step_sizes_.empty()) {
     local_steps_valid_ = std::ranges::all_of(step_sizes_, [](double h) { return h > 0.0; });
   }
 
   // Сохраняем локальный результат для использования в RunImpl
   preprocessing_result_ = local_is_valid;
-  return true; // Всегда возвращаем true, реальная проверка будет в RunImpl
+  return true;  // Всегда возвращаем true, реальная проверка будет в RunImpl
 }
 
 bool kharin_m_multidimensional_integral_calc_all::TaskALL::RunImpl() {
